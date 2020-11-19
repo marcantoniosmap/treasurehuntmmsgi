@@ -1,0 +1,9 @@
+$theme-colors: (
+  "primary": #550303,
+  "danger": #ff4136,
+);
+
+// Import Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap.scss";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
