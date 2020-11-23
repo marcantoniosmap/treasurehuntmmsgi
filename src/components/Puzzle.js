@@ -21,7 +21,10 @@ import $ from "jquery";
     const [details,setDetails]=useState(props.details)
     const [ready,setReady]=useState(false);
     const [cardDone,setCardDone]=useState(0);
-
+    const [time,setTime]=useState(0);
+    const [startTime,setStartTime]=useState(false);
+    const [id,setId]=useState("myid");
+    
     useEffect(()=>{
         const text = props.match.params.target;
         const poll= details[text]["greeting"];
@@ -54,12 +57,17 @@ import $ from "jquery";
         props.history.push(`/quiz/${target}`)
     }
     function rightfunction(value){
-        console.log(cardValue1,value)
         return cardValue1===value 
     }
+    // function runTime(){
+    //     setId( setInterval(()=>{
+    //         setTime(time+1)
+    //     },1000)
+    // }
     function flip(piece){
+
         if (cardOpened1===piece[0]){
-            console.log("")
+            return 0
         }
         else if (cardOpened1===null){
             $(`#item${piece[0]}`).addClass("animate");
@@ -80,11 +88,12 @@ import $ from "jquery";
                     setCardOpened2(null)
                     setCardValue2(null)
                     setCardDone(cardDone+1);
-                },1000)
+                },800)
                 if (cardDone===8){
+                    let x = time
                     setTimeout(()=>{
                         setGameState("fin")
-                    },1000)
+                    },800)
                 }
             }
             else{
@@ -96,7 +105,7 @@ import $ from "jquery";
                     setCardValue1(null)
                     setCardOpened2(null)
                     setCardValue2(null)
-                },1000)
+                },800)
 
             }
         }
