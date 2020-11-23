@@ -8,9 +8,7 @@ import './App.css';
 import Greeting from "./components/Greeting";
 import Guide from "./components/Guide";
 import Quiz from "./components/Quiz";
-
-
-
+import Puzzle from "./components/Puzzle";
 function App() {
   const list={
     "buyer":{
@@ -56,8 +54,15 @@ function App() {
               details ={list}
               />
               )}/>
-
-            
+              <Route 
+              path="/puzzle/:target"
+              render ={(props)=>(
+              <Puzzle
+              {...props}
+              details ={list}
+              />
+              )}/>
+              
           </Switch>
         </Router>
         
