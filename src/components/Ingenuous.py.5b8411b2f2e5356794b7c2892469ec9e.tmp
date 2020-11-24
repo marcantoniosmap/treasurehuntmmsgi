@@ -1,0 +1,25 @@
+
+# arr = [[None] * 10000]* 22
+def KS(n,C):
+    if arr[n][C] != None:
+        return arr[n][C]
+    else:
+        if n <= 1 or C <=0:
+            result = 1
+
+        elif C < coins[n]:
+            result =  KS(n-1,C)
+
+        else:
+            tmp1 = KS(n,C-coins[n])
+            tmp2 = KS(n-1,C)
+            result =  tmp2 + tmp1
+            
+        
+        arr[n][C] = result
+        return result
+
+inp = int(input())
+coins = [None, 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000, 1331, 1728, 2197, 2744, 3375, 4096, 4913, 5832, 6859, 8000, 9261]
+arr = [[None for x in range(inp+1)] for y in range(22)]
+print(KS(21,inp))
