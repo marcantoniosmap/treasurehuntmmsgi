@@ -25,22 +25,46 @@ import $ from "jquery";
     const [startTime,setStartTime]=useState(false);
     const [id,setId]=useState("myid");
     
+
+    function getRandom(arr, n) {
+        var result = new Array(n),
+            len = arr.length,
+            taken = new Array(len);
+        if (n > len)
+            throw new RangeError("getRandom: more elements taken than available");
+        while (n--) {
+            var x = Math.floor(Math.random() * len);
+            result[n] = arr[x in taken ? taken[x] : x];
+            taken[x] = --len in taken ? taken[len] : len;
+        }
+        return result;
+    }
+    function doubleValues(array) {
+        var newArray = [];
+        array.forEach(function (el) { newArray.push(el, el); });    
+        return newArray;
+      }
+
     useEffect(()=>{
         const text = props.match.params.target;
         const poll= details[text]["greeting"];
         console.log(text,poll)
         setTarget(poll)
-        let indexarr =shuffleArray([1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9]);
 
+        const longarray = Array.from({length: 39}, (_, index) => index + 1);
+        const shuffledArray =getRandom(longarray,6);
+        const double = doubleValues(shuffledArray);
+
+        let indexarr =shuffleArray(double);
         let arr=[]
-        for (let i = 0; i <18;i++){
+        for (let i = 0; i <12;i++){
             let x =indexarr[i];
             let b = i+1
             arr.push([b,x])
         }
         console.log(arr)
         setPuzzle(arr)
-        setGameState("game")
+        // setGameState("game")
         
     },[]);
 
@@ -55,6 +79,9 @@ import $ from "jquery";
     }
     function nextScene(){
         props.history.push(`/quiz/${target}`)
+    }   
+    function gameStart(){
+        setGameState("game")
     }
     function rightfunction(value){
         return cardValue1===value 
@@ -89,11 +116,11 @@ import $ from "jquery";
                     setCardValue2(null)
                     setCardDone(cardDone+1);
                 },800)
-                if (cardDone===8){
-                    let x = time
+                console.log(cardDone)
+                if (cardDone===5){
                     setTimeout(()=>{
                         setGameState("fin")
-                    },800)
+                    },1500)
                 }
             }
             else{
@@ -114,9 +141,11 @@ import $ from "jquery";
     
     return(
         
-        <div className="row">
+        <div>
             { gameState==="game" ?
-                puzzle.map((piece)=>(
+                <div className="row">
+
+                {puzzle.map((piece)=>(
             <div className="col-4 py-2 min-height-100">
             <div id={"item"+piece[0]} class="flip-card">
                 <div class="flip-card-inner" onClick={(e)=>flip(piece)}>
@@ -126,15 +155,35 @@ import $ from "jquery";
                     </div>
                     </div>
                     <div class="flip-card-back">
-                    <img src={`../picture (${piece[1]}).png`} alt="Avatar" style={{width:"100px",height:"100px"}}/>
+                    <img src={`../faces/picture (${piece[1]}).png`} alt="Avatar" style={{width:"100px",height:"100px"}}/>
                     {/* <img src={`../picture (1).png`} alt="Avatar" style={{width:"100px",height:"100px"}}/> */}
                     </div>
                 </div>
                 </div>
+            </div>))}
             </div>
 
-                ))
-            : gameState==="prep" ?<div>wait...</div>: <div>You finished!</div>}
+            : gameState==="prep" ?<div>
+                 <h1 className="text-center title">MMSGI Puzzle 2</h1>
+                 <div>
+                    <p>
+                    In this segment, you will have to remember the faces of ours, We call ourself the <b>MTL (Marketing, Trading, Logistic)</b>
+                    </p>
+                    <p>
+                    You will need to match <b>two</b> faces and finish all the card in less than 30 seconds. 
+                        
+                    </p>
+                    <button onClick={gameStart}className="btn btn-primary btn-block">Start Puzzle 2</button>
+                </div>
+                </div>
+                
+                : <div>
+                    <p>
+                    You finished!<br/>
+                         Now you know the faces of ours
+                    </p>
+                </div>
+                }
         </div>
 
     )

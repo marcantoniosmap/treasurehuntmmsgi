@@ -23,7 +23,10 @@ import {
     
     return(
         <div className="text-center">
-            <h1>Welcome to MMSGI Treasure Hunt</h1>
+            <div className="pb-3">
+            <img style={{width:"100%"}}src="../treasurehunt.png"/>
+
+            </div>
             <p>As one of our favorite {greeting}, we would like to invite you 
             to join us in this festive</p>
             <button 

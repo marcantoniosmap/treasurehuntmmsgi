@@ -91,7 +91,7 @@ body .wrong {
 }
 
 .flip-card-front {
-  background-color: #272727;
+  background-color: #3a3a3a;
   color: white;
 }
 
@@ -103,4 +103,9 @@ body .wrong {
 
 .min-height-100 {
   min-height: 105px;
+  overflow: hidden;
+}
+
+.slick-arrow {
+  display: none !important;
 }

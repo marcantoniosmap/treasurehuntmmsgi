@@ -19,60 +19,64 @@ import {
 import Slider from "react-slick";
 
   function Quiz(props){
-    const [settings,setSettings] = useState({
-        dots: false,
-        arrow:true,
-        draggable:false,
-        infinite: false,
-        accessibility :false,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      });
-    const [numchecked,setNumChecked]=useState("");
-    const [target,setTarget]=useState();
-    const [greeting,setGreeting]=useState();
-    const [details,setDetails]=useState(props.details)
-    const [number,setNumber]=useState(0)
-    const [quiz,setQuiz]=useState("prep");
+      const [swipe,setSwipe]=useState(false);
+      const [numchecked,setNumChecked]=useState("");
+      const [target,setTarget]=useState();
+      const [greeting,setGreeting]=useState();
+      const [details,setDetails]=useState(props.details)
+      const [number,setNumber]=useState(0)
+      const [quiz,setQuiz]=useState("prep");
+      const [settings,setSettings] = useState({
+          dots: false,
+          arrow:true,
+        //   draggable:false,
+        //   swipeToSlide: false,
+          swipe: swipe,
+        //   swipeToScroll: false,
+          infinite: false,
+        //   accessibility :false,
+          slidesToShow: 1,
+          slidesToScroll:1
+        });
     const [questions,setQuestions]=useState([
         {
             "question":"1. What does our company name, MMSGI stands for ?",
-            "choice1":"Maju Mundur Syantik Group Indonesia",
+            "choice1":"Maju Mundur Selalu Group Indonesia",
             "choice2":"Mitra Maju Sukses Group Indonesia",
-            "choice3":"Mitra Makmur Sentosa Group Indonesia",
-            "choice4":"Multi Mining Samarinda Group Indonesia",
+            "choice3":"Makan Minum Sehat Group Indonesia",
+            "choice4":"Mabok Mabok Sukses Group Indonesia",
 
         },
         {
-            "question":"2. When does MMSGI first established ?",
-            "choice1":"2005",
-            "choice2":"2007",
-            "choice3":"2009",
-            "choice4":"2011",
+            "question":"2. When did MMSGI was first established ?",
+            "choice1":"2010",
+            "choice2":"2013",
+            "choice3":"2014",
+            "choice4":"2016",
 
         },
         {
-            "question":"3. Which of these are not in the business scope of MMSGI?",
+            "question":"3. Which of these business MMSGI is not involved in yet?",
             "choice1":"Property",
             "choice2":"Mining",
             "choice3":"Security",
-            "choice4":"Clothing",
+            "choice4":"Bike Jersey",
 
         },
         {
-            "question":"4. Where is our main headquarter?",
-            "choice1":"TCC",
+            "question":"4. Where is our main office located at?",
+            "choice1":"The City Center",
             "choice2":"Menara Batavia",
             "choice3":"UOB Tower",
             "choice4":"Sudirman Tower",
 
         },
         {
-            "question":"5. Who is the most handsome MMSGI person?",
-            "choice1":"Edmund Tan",
-            "choice2":"MarcAntonio Purnama",
-            "choice3":"Lisye Liman",
-            "choice4":"Noviza Chinanigo",
+            "question":"5. Who is the most handsome guy in MMSGI?",
+            "choice1":"Mr. Edmund",
+            "choice2":"Edmund Tan",
+            "choice3":"Pak ET",
+            "choice4":"Still Edmund",
 
         }
     ])
@@ -87,8 +91,8 @@ import Slider from "react-slick";
         setNumChecked(idPassed)
     }
     function checkTrue(){
-        const answer =[2,1,4,1,2]
-        if (answer[number]===numchecked)
+        const answer =[2,3,4,1,2]
+        if (answer[number]===numchecked || (number===4 && numchecked!==null))
             return true
         else return false;
     }
@@ -98,8 +102,9 @@ import Slider from "react-slick";
         $(".title").html("WRONGGG")
     }
     function checkandNext(){
+        setSwipe(true)
         if (quiz==="prep"){setQuiz("quiz"); return 0}
-        if (quiz==="fin"){props.history.push(`/greeting/${props.match.params.target}`)}
+        if (quiz==="fin"){props.history.push(`/puzzle/${props.match.params.target}`)}
         else{
             if (checkTrue()){
                 if (number===4){
@@ -108,6 +113,7 @@ import Slider from "react-slick";
                     $(".title").html("CONGRATZ");
                 }else{
                     setNumChecked(null);
+                    console.log(settings.swipe)
                     $(".slick-next")[0].click()
                     setNumber(number+1)
 
@@ -124,7 +130,7 @@ import Slider from "react-slick";
             }
             
         }
-      
+      setSwipe(false)
     }
     function getButton(){
         if (quiz==="prep") {return "START"}
@@ -144,7 +150,7 @@ import Slider from "react-slick";
                 {quiz==="quiz" ?
                 <Slider {...settings}>
                     {questions.map((question)=>(
-                        <Form>
+                        <Form key={question}>
                             <fieldset>
                                 <FormGroup>
                                     <FormLabel className="mb-3">
@@ -198,7 +204,18 @@ import Slider from "react-slick";
                         Yey! You just finished our next challenge, Now you know more about our company.<br/>
                         </p>
                         <p>
-                        MMSGI (Mitra Maju Sukses Group Indonesia) was first found in 2006. We do business in different industries such as coal mining, and property.<br/>
+                        MMSGI <b>(Mitra Maju Sukses Group Indonesia)</b> was first established in 2014.
+                        Today, our group have grown
+into one of the most reputable
+and reliable coal suppliers for
+both national and international
+markets. All coal related business is
+consolidated under <b>MMS Resources</b>.
+In Parallel, we grow our portfolio
+beyond coal into other businesess,
+ranging from property under <b>Mitra
+Properti Sukses</b> and new initiatives
+under Life After Mine.<br/>
                         </p>
                         <p>
 
