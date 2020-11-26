@@ -178,7 +178,7 @@ import $ from "jquery";
                 </div>
                 
                 : <div>
-                    <p>
+                    <p className="text-center">
                     You finished!<br/>
                          Now you know the faces of ours
                     </p>
