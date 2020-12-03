@@ -9,6 +9,7 @@ import Greeting from "./components/Greeting";
 import Guide from "./components/Guide";
 import Quiz from "./components/Quiz";
 import Puzzle from "./components/Puzzle";
+import FeedbackForm from "./components/FeedbackForm"
 function App() {
   const list={
     "buyer":{
@@ -26,7 +27,6 @@ function App() {
       }
   return (
     <div className="container h-full">
-      <div className="h-100 d-flex align-items-center justify-content-center">
         <Router>
           <Switch>
             <Route path="/" exact render ={(props)=><Redirect to="/greeting/buyer"/>}/>
@@ -62,11 +62,18 @@ function App() {
               details ={list}
               />
               )}/>
+                 <Route 
+              path="/feedbackform/:target"
+              render ={(props)=>(
+              <FeedbackForm
+              {...props}
+              details ={list}
+              />
+              )}/>
               
           </Switch>
         </Router>
         
-      </div>
     </div>
   );
 }

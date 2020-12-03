@@ -24,6 +24,7 @@ import {
     }
     
     return(
+        <div className="h-100 d-flex align-items-center justify-content-center">
 
                 <div className="text-center">
                     <h1>How to crack the mystery box</h1>
@@ -32,6 +33,7 @@ import {
                         className="btn btn-primary"
                         onClick={nextScene}>Start here
                     </button>
+                </div>
                 </div>
 
     )

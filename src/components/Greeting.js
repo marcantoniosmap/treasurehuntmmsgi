@@ -22,9 +22,11 @@ import {
     }
     
     return(
+        <div className="h-100 d-flex align-items-center justify-content-center">
+
         <div className="text-center">
             <div className="pb-3">
-            <img style={{width:"100%"}}src="../treasurehunt.png"/>
+            <img style={{width:"100%"}}class="logo"src="../decodemmsgi.svg"/>
 
             </div>
             <p>As one of our favorite {greeting}, we would like to invite you 
@@ -33,6 +35,7 @@ import {
                 className="btn btn-primary"
                 onClick={nextScene}>CLICK ME!
             </button>
+        </div>
         </div>
 
     )

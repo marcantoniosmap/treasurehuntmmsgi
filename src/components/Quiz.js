@@ -110,7 +110,7 @@ import Slider from "react-slick";
                 if (number===4){
                     setNumber(5)
                     setQuiz("fin");
-                    $(".title").html("CONGRATZ");
+                    $(".title").html("PERFECT SCORE");
                 }else{
                     setNumChecked(null);
                     console.log(settings.swipe)
@@ -142,6 +142,8 @@ import Slider from "react-slick";
     }
     
     return(
+        <div className="h-100 d-flex align-items-center justify-content-center">
+
         <div className="container" >
             <h1 className="text-center title">MMSGI QUIZ</h1>
             <ProgressBar now={number*20}/>
@@ -157,6 +159,7 @@ import Slider from "react-slick";
                                         {question["question"]}
                                     </FormLabel>
                                         <FormCheck
+                                        className="smaller"
                                             type="checkbox"
                                             label={question["choice1"]}
                                             // id="first-1"
@@ -164,6 +167,7 @@ import Slider from "react-slick";
                                             onChange={()=>handlechanged(1)}
                                         />
                                         <FormCheck
+                                        className="smaller"
                                             type="checkbox"
                                             label={question["choice2"]}
                                             // id="first-2"
@@ -171,6 +175,7 @@ import Slider from "react-slick";
                                             onChange={()=>handlechanged(2)}
                                         />
                                         <FormCheck
+                                        className="smaller"
                                             type="checkbox"
                                             label={question["choice3"]}
                                             // id="first-3"
@@ -178,6 +183,7 @@ import Slider from "react-slick";
                                             onChange={()=>handlechanged(3)}
                                         />
                                         <FormCheck
+                                        className="smaller"
                                             type="checkbox"
                                             label={question["choice4"]}
                                             // id="first-4"
@@ -219,7 +225,7 @@ under Life After Mine.<br/>
                         </p>
                         <p>
 
-                        Click the button below to procedd.
+                        But wait, who is <b>Edmund</b>? Click the button below to procedd.
                         </p>
                 </div>
                 
@@ -229,6 +235,7 @@ under Life After Mine.<br/>
 
 
              </div>
+         </div>
          </div>
 
     )

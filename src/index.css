@@ -109,3 +109,51 @@ body .wrong {
 .slick-arrow {
   display: none !important;
 }
+
+.logo {
+  /* width: 150px;
+  height: 150px; */
+  /* box-sizing: border-box; */
+  /* border: 5px white solid; */
+  /* border-radius: 50%; */
+  /* overflow: hidden; */
+  /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6); */
+  transform: translatey(0px);
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-15px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+label {
+  font-size: 110%;
+}
+.smaller {
+  font-size: 90% !important;
+  color: rgb(102, 102, 102) !important;
+}
+.transparant {
+  color: transparent;
+}
+.red {
+  color: red !important;
+}
+.MuiSlider-root {
+  color: #cc6666 !important;
+}
+
+.et-say-no {
+  z-index: -100;
+  position: fixed;
+  right: auto;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0;
+}

@@ -141,7 +141,8 @@ import $ from "jquery";
     
     return(
         
-        <div>
+        <div className="h-100 d-flex align-items-center justify-content-center">
+
             { gameState==="game" ?
                 <div className="row">
 
