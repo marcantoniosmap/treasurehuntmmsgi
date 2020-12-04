@@ -10,6 +10,7 @@ import Guide from "./components/Guide";
 import Quiz from "./components/Quiz";
 import Puzzle from "./components/Puzzle";
 import FeedbackForm from "./components/FeedbackForm"
+import People from "./components/People";
 function App() {
   const list={
     "buyer":{
@@ -66,6 +67,14 @@ function App() {
               path="/feedbackform/:target"
               render ={(props)=>(
               <FeedbackForm
+              {...props}
+              details ={list}
+              />
+              )}/>
+               <Route 
+              path="/peopledetail/:target"
+              render ={(props)=>(
+              <People
               {...props}
               details ={list}
               />

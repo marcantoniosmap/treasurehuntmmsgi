@@ -145,7 +145,10 @@ import Slider from "react-slick";
         <div className="h-100 d-flex align-items-center justify-content-center">
 
         <div className="container" >
-            <h1 className="text-center title">MMSGI QUIZ</h1>
+                    <div className="d-flex align-items-center justify-content-center">
+                        <img className="img-fluid logo"src="../gettoknow.png"/>
+
+                    </div>
             <ProgressBar now={number*20}/>
 
             <div className="pt-5 w-100">
@@ -224,8 +227,7 @@ Properti Sukses</b> and new initiatives
 under Life After Mine.<br/>
                         </p>
                         <p>
-
-                        But wait, who is <b>Edmund</b>? Click the button below to procedd.
+                        Click the button below to move on to the second step.
                         </p>
                 </div>
                 

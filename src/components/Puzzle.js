@@ -9,6 +9,7 @@ import {
 import logo from "../mmsgilogo.png"
 import $ from "jquery";
 
+
   function Puzzle(props){
 
     const [target,setTarget]=useState();
@@ -21,10 +22,9 @@ import $ from "jquery";
     const [details,setDetails]=useState(props.details)
     const [ready,setReady]=useState(false);
     const [cardDone,setCardDone]=useState(0);
-    const [time,setTime]=useState(0);
-    const [startTime,setStartTime]=useState(false);
-    const [id,setId]=useState("myid");
     
+
+
 
     function getRandom(arr, n) {
         var result = new Array(n),
@@ -48,10 +48,9 @@ import $ from "jquery";
     useEffect(()=>{
         const text = props.match.params.target;
         const poll= details[text]["greeting"];
-        console.log(text,poll)
         setTarget(poll)
 
-        const longarray = Array.from({length: 39}, (_, index) => index + 1);
+        const longarray = Array.from({length: 40}, (_, index) => index + 1);
         const shuffledArray =getRandom(longarray,6);
         const double = doubleValues(shuffledArray);
 
@@ -78,7 +77,7 @@ import $ from "jquery";
         return array
     }
     function nextScene(){
-        props.history.push(`/quiz/${target}`)
+        props.history.push(`/peopledetail/${target}`)
     }   
     function gameStart(){
         setGameState("game")
@@ -118,8 +117,10 @@ import $ from "jquery";
                 },800)
                 console.log(cardDone)
                 if (cardDone===5){
+                    $(".logo").fadeOut()
                     setTimeout(()=>{
                         setGameState("fin")
+                        
                     },1500)
                 }
             }
@@ -142,7 +143,11 @@ import $ from "jquery";
     return(
         
         <div className="h-100 d-flex align-items-center justify-content-center">
+            <div>
+            <div className="d-flex align-items-center justify-content-center">
+                    <img className="img-fluid logo"src="../facesofmtl.png"/>
 
+                    </div>
             { gameState==="game" ?
                 <div className="row">
 
@@ -165,13 +170,16 @@ import $ from "jquery";
             </div>
 
             : gameState==="prep" ?<div>
-                 <h1 className="text-center title">MMSGI Puzzle 2</h1>
                  <div>
                     <p>
-                    In this segment, you will have to remember the faces of ours, We call ourself the <b>MTL (Marketing, Trading, Logistic)</b>
+                    Do you know all the people in <b>MTL</b> (Marketing, Trading, Logistic)?
                     </p>
                     <p>
-                    You will need to match <b>two</b> faces and finish all the card in less than 30 seconds. 
+Here's your chance! Play a game with us.
+
+                    </p>
+                    <p>
+                    Match all the faces correctly within <span className="red">30 seconds</span> to proceed unlocking the secret code.
                         
                     </p>
                     <button onClick={gameStart}className="btn btn-primary btn-block">Start Puzzle 2</button>
@@ -181,12 +189,14 @@ import $ from "jquery";
                 : <div>
                     <p className="text-center">
                     You finished!<br/>
-                         Now you know the faces of ours
+                         But who are those people by the card?
                     </p>
+                    <button onClick={nextScene} className="btn btn-primary btn-block">CLICK ME</button>
+                 
                 </div>
                 }
         </div>
-
+        </div>
     )
   }
 

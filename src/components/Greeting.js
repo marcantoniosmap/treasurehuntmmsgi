@@ -32,8 +32,8 @@ import {
             <p>As one of our favorite {greeting}, we would like to invite you 
             to join us in this festive</p>
             <button 
-                className="btn btn-primary"
-                onClick={nextScene}>CLICK ME!
+                className="btn btn-primary btn-block"
+                onClick={nextScene}>START DECODING
             </button>
         </div>
         </div>
