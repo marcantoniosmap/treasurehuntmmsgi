@@ -91,9 +91,9 @@ function App() {
               
           </Switch>
         </Router>
-        <div id="footer" class="text-center font-italic">
+        {/* <div id="footer" class="text-center font-italic">
           #DecodeMMSGI
-          </div>
+          </div> */}
     </div>
   );
 }

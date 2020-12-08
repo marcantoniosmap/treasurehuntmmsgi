@@ -11,12 +11,15 @@ import {useState, useEffect} from "react"
   ProgressBar
 } from "react-bootstrap";
 import Slider from "react-slick"
+import $ from "jquery"
 
 function People(props){
 
   const [currdiv,setCurrDiv]=useState()
-  // const divisions =["Head","Sales","Logistic","Support"];
-  const divisions =["Head"];
+  const [title,setTitle]=useState(true);
+  const divisions =["Head","Sales","Logistic","Support"];
+  const [currTitle,setCurrTitle]=useState(divisions[0])
+  // const divisions =["Head"];
   const list={
     "Head" :["Edmund","Gustaf","Saly","Kamari","Azwar","Dinovita"],
     "Sales":["Lisye","Valen","Jelita","Hari","Nadhira","Marina","Tissa","Mufthi","Laila","Yura","Valesia","Febri"],
@@ -37,28 +40,30 @@ function People(props){
       slidesToShow: 1,
     },
   }
+  useEffect(()=>{
+    let i =0
+    
+    setInterval(()=>{
+        $('#headpic').animate({right:'1800px'},8000,()=>{
+
+        })
+    },1000)
+  },[])
     function openFunction(div,per){
 
     }
   
     return(
-      <div className="h-100" style={{overflow:"hidden"}}>
-        <div className="flex-container pt-5">
-            <div className="flex-child h-100">
-            <Slider className="h-100"{...setting["Head"]}>
-            {list["Head"].map((person)=>(
-                <div className="card" style={{minHeight:"800px"}}>
-                  <div style={{backgroundColor:"blue"}}>Hello</div>
-                  {/* <img className="img-fluid"onClick={e=>(openFunction("Head",person))}src={`../face-body/${"Head"}/${person}.png`}/> */}
-              </div>
-            ))}
-         </Slider>
-
-            </div>
+      <div className="h-100">
+          <div className="h-100 w-100 d-flex align-items-end" style={{overflow:"hidden"}}>
+        <div>  
+            <h1 className="text-center" id="title">Our Head</h1>
+          <img id="headpic" class="picturejumbo" src="../face-body/headpicture.png"/>
         </div>
-     
+      
+        </div>
+
       </div>
-    )
-}
+    )}
 
 export default People;

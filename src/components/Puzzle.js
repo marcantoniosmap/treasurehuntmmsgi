@@ -74,7 +74,7 @@ import $ from "jquery";
         return array
     }
     function nextScene(){
-        props.history.push(`/peopledetail/${target}`)
+        props.history.push(`/feedbackform/`)
     }   
     function gameStart(){
         setGameState("game")

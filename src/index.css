@@ -212,3 +212,14 @@ label {
 .slick-slider {
   height: 100% !important;
 }
+.picturejumbo {
+  right: 0px;
+  bottom: 0px;
+  /* left: 0px; */
+  position: relative;
+}
+#title {
+  /* right: 0;
+  left: 0; */
+  position: relative;
+}
