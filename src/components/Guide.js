@@ -11,16 +11,8 @@ import {
 
     const [target,setTarget]=useState();
 
-    const [details,setDetails]=useState(props.details)
-
-    useEffect(()=>{
-        const text = props.match.params.target;
-        const poll= details[text]["greeting"];
-        console.log(text,poll)
-        setTarget(poll)
-    },[]);
     function nextScene(){
-        props.history.push(`/quiz/${target}`)
+        props.history.push(`/quiz`)
     }
     
     return(

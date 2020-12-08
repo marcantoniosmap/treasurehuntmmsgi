@@ -157,3 +157,58 @@ label {
   overflow: hidden;
   opacity: 0;
 }
+#footer {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #9b3f3f;
+  color: white;
+}
+
+.primary-color {
+  color: #cc6666;
+}
+.hovering {
+  position: fixed;
+  top: 20rem;
+}
+.slider-people {
+  position: fixed;
+  bottom: 20px;
+}
+.slick-center {
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  -o-transform: scale(2);
+  -webkit-transform: scale(2);
+  opacity: 1;
+  transform: scale(2);
+}
+
+.flex-container {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+
+  /* Using flexbox */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+  /*----*/
+  color: #333;
+}
+.flex-child {
+  width: 80%;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: center;
+}
+.slick-list,
+.slick-slider {
+  height: 100% !important;
+}

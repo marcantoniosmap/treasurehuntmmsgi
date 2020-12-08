@@ -11,6 +11,7 @@ import Quiz from "./components/Quiz";
 import Puzzle from "./components/Puzzle";
 import FeedbackForm from "./components/FeedbackForm"
 import People from "./components/People";
+import RevealCode from "./components/RevealCode"
 function App() {
   const list={
     "buyer":{
@@ -30,9 +31,9 @@ function App() {
     <div className="container h-full">
         <Router>
           <Switch>
-            <Route path="/" exact render ={(props)=><Redirect to="/greeting/buyer"/>}/>
+            <Route path="/" exact render ={(props)=><Redirect to="/greeting"/>}/>
             <Route 
-                path="/greeting/:target" 
+                path="/greeting" 
                 render ={(props)=>(
                 <Greeting 
                 {...props}
@@ -40,7 +41,7 @@ function App() {
                 />
                 )}/>
             <Route 
-              path="/guide/:target" 
+              path="/guide" 
               render ={(props)=>(
               <Guide 
               {...props}
@@ -48,7 +49,7 @@ function App() {
               />
               )}/>
             <Route 
-              path="/quiz/:target" 
+              path="/quiz" 
               render ={(props)=>(
               <Quiz
               {...props}
@@ -56,7 +57,7 @@ function App() {
               />
               )}/>
               <Route 
-              path="/puzzle/:target"
+              path="/puzzle"
               render ={(props)=>(
               <Puzzle
               {...props}
@@ -64,7 +65,7 @@ function App() {
               />
               )}/>
                  <Route 
-              path="/feedbackform/:target"
+              path="/feedbackform"
               render ={(props)=>(
               <FeedbackForm
               {...props}
@@ -72,9 +73,17 @@ function App() {
               />
               )}/>
                <Route 
-              path="/peopledetail/:target"
+              path="/people"
               render ={(props)=>(
               <People
+              {...props}
+              details ={list}
+              />
+              )}/>
+              <Route 
+              path="/revealcode"
+              render ={(props)=>(
+              <RevealCode
               {...props}
               details ={list}
               />
@@ -82,7 +91,9 @@ function App() {
               
           </Switch>
         </Router>
-        
+        <div id="footer" class="text-center font-italic">
+          #DecodeMMSGI
+          </div>
     </div>
   );
 }

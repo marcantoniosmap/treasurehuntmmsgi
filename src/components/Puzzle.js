@@ -46,9 +46,6 @@ import $ from "jquery";
       }
 
     useEffect(()=>{
-        const text = props.match.params.target;
-        const poll= details[text]["greeting"];
-        setTarget(poll)
 
         const longarray = Array.from({length: 40}, (_, index) => index + 1);
         const shuffledArray =getRandom(longarray,6);
@@ -145,7 +142,7 @@ import $ from "jquery";
         <div className="h-100 d-flex align-items-center justify-content-center">
             <div>
             <div className="d-flex align-items-center justify-content-center">
-                    <img className="img-fluid logo"src="../facesofmtl.png"/>
+                    <img className="img-fluid logo"src="../facesofMTL.png"/>
 
                     </div>
             { gameState==="game" ?
@@ -182,7 +179,7 @@ Here's your chance! Play a game with us.
                     Match all the faces correctly within <span className="red">30 seconds</span> to proceed unlocking the secret code.
                         
                     </p>
-                    <button onClick={gameStart}className="btn btn-primary btn-block">Start Puzzle 2</button>
+                    <button onClick={gameStart}className="btn btn-primary btn-block">START PUZZLE 2</button>
                 </div>
                 </div>
                 

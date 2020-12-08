@@ -30,40 +30,19 @@ import $ from 'jquery'
     const [sliderValue1,setSliderValue1]=useState(3)
     const [sliderValue2,setSliderValue2]=useState(3)
     const [sliderValue3,setSliderValue3]=useState(35)
-    const [sliderValue4,setSliderValue4]=useState(0)
+    const [sliderValue4,setSliderValue4]=useState(50)
     const [textNegative,setTextNegative]=useState("Not Satisfied")
     const [textPositive,setTextPositive]=useState("Very Satisfied")
     const [showModal1,setShowModal1]=useState(false)
     const [details,setDetails]=useState(props.details)
+    const [showModal2,setShowModal2]=useState(false);
     const [radioBoxGone,setRadioBoxGone]=useState(false)
     const specialmessage="MMSGI had been our favorite company to work with. On overall we are very satisfied with our business partnership!"
-    const marks = [
-        {
-          value: 0,
-          label: '0%',
-        },
-       
-        {
-            value: 50,
-            label: '50%',
-          },
-      
-        {
-          value: 100,
-          label: '100%',
-        },
-      ];
-
-      console.log(agree)
     const handleClose1 = () => setShowModal1(false);
-  const handleShow1 = () => setShowModal1(true);
+    const handleShow1 = () => setShowModal1(true);
+    const handleClose2 = () => setShowModal2(false);
+    const handleShow2 = () => setShowModal2(true);
 
-    useEffect(()=>{
-        const text = props.match.params.target;
-        const poll= details[text]["greeting"];
-        console.log(text,poll)
-        setTarget(poll)
-    },[]);
     function nextScene(){
         props.history.push(`/quiz/${target}`)
     }
@@ -76,7 +55,7 @@ import $ from 'jquery'
         }
     }
     function handleChange2(event,newValue){
-        if (newValue>4){
+        if (newValue>2){
             setTextPositive("Very Satisfied")
             setTextNegative("Not Satisfied")
         }
@@ -101,12 +80,17 @@ import $ from 'jquery'
     }
     function handleChange4(event,newValue){
         setSliderValue4(newValue)
-        $('#feedbackform').css('opacity',1-(newValue/100))
-        $('.et-say-no').css('opacity',(newValue/100))
+        if (newValue<50){
+            $('#feedbackform').css('opacity',(newValue/50)+0.1)
+            $('.et-say-no').css('opacity',1-(newValue/50))
+        }else{
+            $('#feedbackform').css('opacity',1)
+            $('.et-say-no').css('opacity',0)
+        }
     }
     
     function submission(){
-        setPageStat("fin")
+        props.history.push('/codereveal')
     }    
     function formchecker(){
         return !(agree&& radioBoxGone && getCharacterLeft()<=50)
@@ -118,13 +102,23 @@ import $ from 'jquery'
         if (agree){
             setAgree(false)
         }
-        else setAgree(true)
+        else {
+            setShowModal2(true)
+        }
+    }
+    function onClickCheckbox(){
+        if (agree){
+            setAgree(false)
+        }else{
+            showModal2(true)
+        }
     }
     function getCharacterLeft(){
         return specialmessage.length-textValue.length
     }
     function handleClick(value,index){
-        if (index===4){
+        console.log(index)
+        if (index===3){
             if (radioBoxGone){
                 setRadioBoxGone(false);
             }else setRadioBoxGone(true)
@@ -136,8 +130,13 @@ import $ from 'jquery'
     function startFeedback(){
         setPageStat("feedback")
     }
-    return(
+    function handleAgree1(){
+        setAgree(true)
+        setShowModal2(false)
 
+    }
+    return(
+       
         <div className=" h-100 pt-5" >
             <div className="et-say-no">
             <img  className="img-fluid px-3" src="../et-sayno.png"></img>
@@ -146,9 +145,14 @@ import $ from 'jquery'
 
             {pageStat==="prep"? (
                 <div className="d-flex justify-content-center align-items-center h-100">
-                    <div>
-                    <h2 className="text-center title">Honest Feedback Form</h2>
-                    <p>Please fill in this feedback form with honesty!</p>
+                    <div className="text-center">
+                    <div className="d-flex align-items-center justify-content-center">
+                        <img className="img-fluid logo"src="../custSatisfaction.png"/>
+
+                    </div>
+                    <h5>Your feedback matters to us!</h5>
+
+<p>We appreciate you taking 1 minute to participate in our customer satisfaction survey. Your valuable feedback will help us serve you better.</p>
   <Button variant="primary"  onClick={startFeedback}block type="submit">
     START
   </Button>
@@ -169,14 +173,30 @@ CLAIM CODE!
             
         </div>):(
                 <div id="feedbackform">
-<h3 className="text-center title">Honest Feedback Form</h3>
+<h3 className="text-center title">MMSGI Feedback Form</h3>
         <p className="text-center"><span className="red">*</span> required field</p>
         <ModalB show={showModal1} 
                 handleClose={handleClose1}
+                handleAgree={handleClose1}
                 heading={"Oopss"}
-                context={"Sorry, the bug in this site disable you from going lower!"}
+                context={" There seem to be a technical gitch. Please select a higher rating to proceed."}
                 button={"I'll make it higher"}/>
-                   <Form className="py-5">
+
+        <ModalB show={showModal2} 
+                handleClose={handleClose2}
+                handleAgree={handleAgree1}
+                heading={"Terms and Condition"}
+                context={<div>
+                Thank you for participating in our survey. <br/><br/>By checking this box, you hereby agree to the terms and conditions as set forth.<br/><br/> 
+                <ol>
+                    <li>You agree that MMSGI may collect <b>only</b> the positive feedback data. We shall send the negative results to our internal recycle bin.</li>
+                    <li>We will always use best endeavors to achieve win-win partnership and have <b>fun</b> in the process.</li>
+                    <li>You have filled in the survey with only your own <b>honest</b> opinion.</li>
+                </ol>
+                These terms and conditions are subject to change at the sole discretion of MMSGI. Trust us. We know what is best for you.😉
+                </div>}
+                button={"Agree"}/>
+                   <Form className="pt-4 pb-5 mb-1">
 
                        {/* ONE */}
                         <FormGroup className="mb-4">
@@ -239,7 +259,7 @@ CLAIM CODE!
                             {/* THREE */}
                         <FormGroup className="mb-4">
                             <FormLabel >
-                             3. How likely are you going to do our business <b>partnership</b> in 2021?<span className="red">*</span>
+                            3. How likely are you going to renew/start our business <b>partnership</b> in 2021?*<span className="red">*</span>
                             </FormLabel>
                             <div className="row pt-3">
                             <div className="col-3">
@@ -259,7 +279,7 @@ CLAIM CODE!
                         />
                             </div>
                             <div className="col-3">
-                            <p className="small text-center">Very likely</p>
+                            <p className="small text-center">Extremely likely</p>
                             </div>
                         </div>
                         </FormGroup>
@@ -267,11 +287,11 @@ CLAIM CODE!
                         {/* FOUR */}
                         <FormGroup className="mb-4">
                             <FormLabel >
-                             3. How much discount do you wish we give in 2021?<span className="red">*</span>
+                             3. How likely are you to <b>recommend</b> us to a business associate?<span className="red">*</span>
                             </FormLabel>
                             <div className="row pt-3">
                             <div className="col-3">
-                                <p className=" text-center">0%</p>
+                                <p className="small text-center">Very Unlikely</p>
                             </div>
                             <div className="col-6">
                             <Slider
@@ -280,15 +300,13 @@ CLAIM CODE!
                             value ={sliderValue4}
                             onChange={handleChange4}
                             aria-labelledby="discrete-slider"
-                            valueLabelDisplay="auto"
                             step={5}
-                            marks={marks}
                             min={0}
                             max={100}
                         />
                             </div>
                             <div className="col-3">
-                            <p className=" text-center">100%</p>
+                            <p className="small text-center">Extremely Likely</p>
                             </div>
                         </div>
                         </FormGroup>
@@ -297,13 +315,13 @@ CLAIM CODE!
 
                         <FormGroup className="mb-4">
                             <FormLabel >
-                             4. Which of the aspect below you expect MMSGI to have in 2021?<span className="red">*</span>
+                             4. Which of the following aspects do you wish MMSGI to improve on?<span className="red">*</span>
                             </FormLabel>
                                 <FormCheck
                                 id="gone1"
                                     className="smaller pt-3"
                                     type="checkbox"
-                                    label="Better Pricing"
+                                    label="Better commercial terms from MMSGI"
                                     checked = {false}
                                 onChange={(e)=>handleClick(e.target.value,1)}
                                 />
@@ -311,25 +329,25 @@ CLAIM CODE!
                            className="smaller"
                            id="gone2"
                                     type="checkbox"
-                                    label="More Discount"
+                                    label="Improved response time on work"
                                     // id="first-1"
                                     checked = {false}
                             onChange={(e)=>handleClick(e.target.value,2)}
                                 /><FormCheck
-                                id="gone3"
+                                
                                 className="smaller"
                                 type="checkbox"
-                                label="Better Customer Service"
+                                label="Enhance business partnership"
                                 // id="first-1"
-                                checked = {false}
+                                checked = {radioBoxGone}
                             onChange={(e)=>handleClick(e.target.value,3)}
                             /><FormCheck
-                            
+                            id="gone4"
                             className="smaller"
                             type="checkbox"
-                            label="More Business Cooperation"
+                            label="Better Customer Service"
                             // id="first-1"
-                            checked = {radioBoxGone}
+                            checked = {false}
                             onChange={(e)=>handleClick(e.target.value,4)}
                         />
                         </FormGroup>
@@ -338,18 +356,18 @@ CLAIM CODE!
                        
                         <FormGroup className="mb-4">
                           <FormLabel>
-                                6. Write your own feedback here!<span className="red">*<div className="small">({getCharacterLeft()} char left)</div></span>
+                               5. Write your own feedback here!*<span className="red">*<div className="small">({getCharacterLeft()} char left)</div></span>
                           </FormLabel>
                           <FormControl className="mt-2"placeholder="What can we improve as a company..." as ="textarea" rows={3} value={textValue} onChange={textFunction}/>
 
                       </FormGroup >
                         
                       <FormGroup id="formGridCheckbox" className="mb-5">
-    <FormCheck type="checkbox" checked={agree} onClick={changeAgree}className="text-muted small" label="I filled this feedback form with honesty and no force from any party." />
+    <FormCheck type="checkbox" checked={agree} onClick={changeAgree}className="text-muted small" label=" Click here to indicate you have read the Terms and Conditions" />
   </FormGroup>
 
   <Button variant="primary" disabled={formchecker()} onClick={submission}block type="submit">
-    Submit
+    SUBMIT AND CLAIM CODE
   </Button>
                     </Form>
                     </div>

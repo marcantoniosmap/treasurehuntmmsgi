@@ -20,7 +20,7 @@ function ModalB(props){
         </Modal.Header>
         <Modal.Body>{props.context}</Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={props.handleClose}>
+          <Button variant="primary" onClick={props.handleAgree}>
             {props.button}
           </Button>
         </Modal.Footer>

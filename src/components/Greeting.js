@@ -10,15 +10,13 @@ import {
   function Greeting(props){
 
     const [target,setTarget]=useState();
-    const [greeting,setGreeting]=useState();
     const [details,setDetails]=useState(props.details)
 
     useEffect(()=>{
-        setTarget(props.match.params.target);
-        setGreeting(details[props.match.params.target]["greeting"]);
+     
     },[]);
     function nextScene(){
-        props.history.push(`/guide/${target}`)
+        props.history.push(`/guide`)
     }
     
     return(
@@ -29,7 +27,7 @@ import {
             <img style={{width:"100%"}}class="logo"src="../decodemmsgi.svg"/>
 
             </div>
-            <p>As one of our favorite {greeting}, we would like to invite you 
+            <p>As one of our favorite company, we would like to invite you 
             to join us in this festive</p>
             <button 
                 className="btn btn-primary btn-block"

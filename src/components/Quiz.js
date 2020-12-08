@@ -80,12 +80,8 @@ import Slider from "react-slick";
 
         }
     ])
-    useEffect(()=>{
-        setTarget(props.match.params.target);
-        setGreeting(details[props.match.params.target]["greeting"]);
-    },[]);
     function nextScene(){
-        props.history.push(`/quiz/${target}`)
+        props.history.push(`/quiz`)
     }
     function handlechanged(idPassed){
         setNumChecked(idPassed)
