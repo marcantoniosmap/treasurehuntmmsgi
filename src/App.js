@@ -81,7 +81,7 @@ function App() {
               />
               )}/>
               <Route 
-              path="/revealcode"
+              path="/codereveal"
               render ={(props)=>(
               <RevealCode
               {...props}
