@@ -12,6 +12,8 @@ import Puzzle from "./components/Puzzle";
 import FeedbackForm from "./components/FeedbackForm"
 import People from "./components/People";
 import RevealCode from "./components/RevealCode"
+import RomanticBargeTour from "./components/RomanticBargeTour"
+import Itaewonclass from "./components/Itaewonclass"
 function App() {
   const list={
     "buyer":{
@@ -84,6 +86,22 @@ function App() {
               path="/codereveal"
               render ={(props)=>(
               <RevealCode
+              {...props}
+              details ={list}
+              />
+              )}/>
+              <Route 
+              path="/romanticbargetour"
+              render ={(props)=>(
+              <RomanticBargeTour
+              {...props}
+              details ={list}
+              />
+              )}/>
+               <Route 
+              path="/itaewonclass"
+              render ={(props)=>(
+              <Itaewonclass
               {...props}
               details ={list}
               />

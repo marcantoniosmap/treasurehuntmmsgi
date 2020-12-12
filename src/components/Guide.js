@@ -20,12 +20,12 @@ import {
 
                 <div className="text-center">
                     <h1 style={{fontSize:"400%"}}>How to Decode ?</h1>
-                    <p>There will be different steps in order to decode this game, complete all the 3 level then you may retrieve the code!</p>
-                    <img className="" src="../guidance.svg" style={{maxWidth:"600px"}} />
+                    <p>There will be different steps in order to decode this game, complete all the <b>3</b> levels, then you may retrieve the code!</p>
+                    <img className="" src="../guidance-dark.svg" style={{maxWidth:"600px"}} />
                     <button
                     
                         className="btn btn-primary btn-block mt-5"
-                        onClick={nextScene}>CONTINUE
+                        onClick={nextScene}>START DECODING
                     </button>
                 </div>
                 </div>

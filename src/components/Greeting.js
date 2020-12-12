@@ -24,14 +24,15 @@ import {
 
         <div className="text-center">
             <div className="pb-3">
-            <img style={{width:"100%"}}class="logo"src="../decodemmsgi.svg"/>
+            <img style={{width:"100%"}}class="logo"src="../decodemmsgi-dark.svg"/>
 
             </div>
-            <p>As one of our favorite company, we would like to invite you 
-            to join us in this festive</p>
+            <p><b>You might be so confused now!</b>
+            <br/>
+            But no worry! We'll guide you through it!</p>
             <button 
                 className="btn btn-primary btn-block"
-                onClick={nextScene}>START DECODING
+                onClick={nextScene}>TELL ME HOW
             </button>
         </div>
         </div>

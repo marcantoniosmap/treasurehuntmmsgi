@@ -9,6 +9,11 @@ h3,
 h4 {
   font-family: "Bebas Neue", cursive;
 }
+body,
+.modal-content {
+  color: white !important;
+  background-color: rgb(33, 33, 33) !important;
+}
 $font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont,
   "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 $font-family-serif: "Times New Roman", Times, serif !default;

@@ -54,11 +54,15 @@ function People(props){
     }
   
     return(
-      <div className="h-100">
-          <div className="h-100 w-100 d-flex align-items-end" style={{overflow:"hidden"}}>
-        <div>  
-            <h1 className="text-center" id="title">Our Head</h1>
-          <img id="headpic" class="picturejumbo" src="../face-body/headpicture.png"/>
+      <div className="h-100 "style={{backgroundColor:"white"}}>
+          <div className="h-100 w-100" style={{overflow:""}}>
+        <div className="h-100 d-flex align-items-center" >
+          <div>
+              <h3 className="text-center">Our <span className="primary-color">MTL</span> Team</h3>
+           <img className="img-fluid logo" src="../mtl-all.png"/>
+           <button className="btn btn-primary btn-block mt-2">PROCEED</button>
+
+          </div>
         </div>
       
         </div>

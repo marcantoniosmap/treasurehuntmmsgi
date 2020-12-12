@@ -137,7 +137,7 @@ label {
 }
 .smaller {
   font-size: 90% !important;
-  color: rgb(102, 102, 102) !important;
+  color: rgb(179, 179, 179) !important;
 }
 .transparant {
   color: transparent;
@@ -222,4 +222,16 @@ label {
   /* right: 0;
   left: 0; */
   position: relative;
+}
+
+.small-it {
+  width: 90%;
+  height: 90%;
+}
+.text-muted2 {
+  color: rgb(179, 179, 179) !important;
+}
+.form-control {
+  background-color: #333 !important;
+  color: #c9c9c9 !important;
 }

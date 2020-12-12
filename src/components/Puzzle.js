@@ -142,7 +142,7 @@ import $ from "jquery";
         <div className="h-100 d-flex align-items-center justify-content-center">
             <div>
             <div className="d-flex align-items-center justify-content-center">
-                    <img className="img-fluid logo"src="../facesofMTL.png"/>
+                    <img className="img-fluid logo small-it "src="../facesofMTL-dark.svg"/>
 
                     </div>
             { gameState==="game" ?

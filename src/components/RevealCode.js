@@ -7,6 +7,7 @@ import {
     Redirect,
   } from "react-router-dom";
 import $ from 'jquery'
+import ReactLoading from 'react-loading'
 
   function RevealCode(props){
 
@@ -18,9 +19,10 @@ import $ from 'jquery'
                                             "We will reveal the code",
                                             "the code is",
                                             "is....",
-                                            "retrieving from database",
-                                            "99%",
-                                            <h3><h1 className="logo primary-color"style={{fontSize:"500%"}}>6980</h1>We wish to see you in 2021!</h3>,
+                                            "{retrieving from database...}",
+                                            "97% done",
+                                            <ReactLoading color="white"/>,
+                                            <h3><h1 className="logo primary-color"style={{fontSize:"500%"}}>694</h1>Number of succeeded decode : <b>{Math.floor(Math.random()*10)}</b></h3>,
                                             ])
     
     useEffect(()=>{

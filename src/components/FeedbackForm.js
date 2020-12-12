@@ -93,7 +93,7 @@ import $ from 'jquery'
         props.history.push('/codereveal')
     }    
     function formchecker(){
-        return !(agree&& radioBoxGone && getCharacterLeft()<=50)
+        return !(agree&& radioBoxGone)
     }
     function valuetext(value){
         return `${value}%`
@@ -138,8 +138,8 @@ import $ from 'jquery'
     return(
        
         <div className=" h-100 pt-5" >
-            <div className="et-say-no">
-            <img  className="img-fluid px-3" src="../et-sayno.png"></img>
+            <div className="et-say-no mr-1">
+            <img  className="img-fluid pr-3" src="../et-sayno.png"></img>
 
             </div>
 
@@ -147,7 +147,7 @@ import $ from 'jquery'
                 <div className="d-flex justify-content-center align-items-center h-100">
                     <div className="text-center">
                     <div className="d-flex align-items-center justify-content-center">
-                        <img className="img-fluid logo"src="../custSatisfaction.png"/>
+                        <img className="img-fluid logo"src="../customerSatisfaction-dark.svg"/>
 
                     </div>
                     <h5>Your feedback matters to us!</h5>
@@ -363,7 +363,7 @@ CLAIM CODE!
                       </FormGroup >
                         
                       <FormGroup id="formGridCheckbox" className="mb-5">
-    <FormCheck type="checkbox" checked={agree} onClick={changeAgree}className="text-muted small" label=" Click here to indicate you have read the Terms and Conditions" />
+    <FormCheck type="checkbox" checked={agree} onClick={changeAgree}className="text-muted2 small" label=" Click here to indicate you have read the Terms and Conditions" />
   </FormGroup>
 
   <Button variant="primary" disabled={formchecker()} onClick={submission}block type="submit">

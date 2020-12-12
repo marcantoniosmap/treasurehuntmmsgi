@@ -100,7 +100,7 @@ import Slider from "react-slick";
     function checkandNext(){
         setSwipe(true)
         if (quiz==="prep"){setQuiz("quiz"); return 0}
-        if (quiz==="fin"){props.history.push(`/puzzle/${props.match.params.target}`)}
+        if (quiz==="fin"){props.history.push(`/puzzle`)}
         else{
             if (checkTrue()){
                 if (number===4){
@@ -142,7 +142,7 @@ import Slider from "react-slick";
 
         <div className="container" >
                     <div className="d-flex align-items-center justify-content-center">
-                        <img className="img-fluid logo"src="../gettoknow.png"/>
+                        <img className="img-fluid logo"src="../gettoknow.svg"/>
 
                     </div>
             <ProgressBar now={number*20}/>
