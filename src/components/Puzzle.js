@@ -61,6 +61,7 @@ import $ from "jquery";
         }
         console.log(arr)
         setPuzzle(arr)
+        $("#beginning").fadeIn(1000)
         
     },[]);
 
@@ -142,10 +143,9 @@ import $ from "jquery";
     return(
         
         <div className="h-100 d-flex align-items-center justify-content-center">
-            <div>
+            <div id="beginning" style={{display:"none"}}>
             <div className="d-flex align-items-center justify-content-center">
                     <img className="img-fluid logo small-it "src="../facesofMTL-dark.svg"/>
-
                     </div>
             { gameState==="game" ?
                 <div className="row">
