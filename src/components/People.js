@@ -71,10 +71,11 @@ function People(props){
   const settings={
       centerMode:false,
       className:"",
-      // speed:5000,
+      autoplaySpeed:7000,
+      speed :1000,
       adaptiveHeight:true,
-      autoplay:false,
-      infinite: true,
+      autoplay:true,
+      infinite: false,
       slidesToShow: 1,
   }
   useEffect(()=>{
@@ -83,7 +84,7 @@ function People(props){
         $("#face-1").fadeOut(1000,()=>{
           $("#face-2").fadeIn(1000)
         })
-    },3000)
+    },2000)
   },[])
   function nextScene(){
     $("#face-2").fadeOut(1000,()=>{
@@ -126,10 +127,13 @@ function People(props){
                     </div>
                   ))
                 }
-                <div className="mx-2">
-
+               
+                {
+                  division==="Support" &&
+                  <div className="mx-2">
                 <button className="btn btn-primary btn-block mt-2 mb-5" onClick={nextScene}>CONTINUE</button>
                 </div>
+                }
               </div>
           ))
         }
