@@ -1,22 +1,17 @@
-import React, { useRef } from "react";
+import React from "react";
 import {useState, useEffect} from "react"
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect,
-  } from "react-router-dom";
+
   import {
       Form,
       FormLabel,
     FormGroup,
-    FormControl,
     FormCheck,
     ProgressBar
   } from "react-bootstrap";
   import $ from "jquery"
   
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
   function Quiz(props){
       const [swipe,setSwipe]=useState(false);
@@ -38,13 +33,18 @@ import Slider from "react-slick";
           slidesToShow: 1,
           slidesToScroll:1
         });
+
+        useEffect(()=>{
+            $("#beginning").fadeIn(1000)
+         
+        },[]);
     const [questions,setQuestions]=useState([
         {
             "question":"1. What does our company name, MMSGI stands for ?",
             "choice1":"Maju Mundur Selalu Group Indonesia",
             "choice2":"Mitra Maju Sukses Group Indonesia",
             "choice3":"Makan Minum Sehat Group Indonesia",
-            "choice4":"Mabok Mabok Sukses Group Indonesia",
+            "choice4":"None of the above",
 
         },
         {
@@ -80,14 +80,12 @@ import Slider from "react-slick";
 
         }
     ])
-    function nextScene(){
-        props.history.push(`/quiz`)
-    }
+
     function handlechanged(idPassed){
         setNumChecked(idPassed)
     }
     function checkTrue(){
-        const answer =[2,3,4,1,2]
+        const answer =[4,3,4,1,2]
         if (answer[number]===numchecked || (number===4 && numchecked!==null))
             return true
         else return false;
@@ -100,7 +98,12 @@ import Slider from "react-slick";
     function checkandNext(){
         setSwipe(true)
         if (quiz==="prep"){setQuiz("quiz"); return 0}
-        if (quiz==="fin"){props.history.push(`/puzzle`)}
+        if (quiz==="fin"){
+            $("#beginning").fadeOut(1000,()=>{
+                props.history.push(`/puzzle`)
+    
+            })
+        }
         else{
             if (checkTrue()){
                 if (number===4){
@@ -140,7 +143,7 @@ import Slider from "react-slick";
     return(
         <div className="h-100 d-flex align-items-center justify-content-center">
 
-        <div className="container" >
+        <div className="container" id="beginning" style={{display:"none"}}>
                     <div className="d-flex align-items-center justify-content-center">
                         <img className="img-fluid logo"src="../gettoknow.svg"/>
 
@@ -204,12 +207,12 @@ import Slider from "react-slick";
                     </p>
                 </div>
                  :  
-                 <div>
+                 <div className="text-center">
                     <p>
                         Yey! You just finished our next challenge, Now you know more about our company.<br/>
                         </p>
                         <p>
-                        MMSGI <b>(Mitra Maju Sukses Group Indonesia)</b> was first established in 2014.
+                        <b>MMSGI</b> was first established in 2014.
                         Today, our group have grown
 into one of the most reputable
 and reliable coal suppliers for
@@ -223,7 +226,7 @@ Properti Sukses</b> and new initiatives
 under Life After Mine.<br/>
                         </p>
                         <p>
-                        Click the button below to move on to the second step.
+                        Click <a target="#" href="https://mmsgroup.co.id/en/tentang-kami">here</a> to read more about our company.
                         </p>
                 </div>
                 

@@ -1,14 +1,8 @@
 import React from "react";
 import {useState, useEffect} from "react"
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect,
-  } from "react-router-dom";
-  import {
-    Form,
-    FormLabel,
+  Form,
+  FormLabel,
   FormGroup,
   FormControl,
   FormCheck,
@@ -133,8 +127,10 @@ import $ from 'jquery'
     function handleAgree1(){
         setAgree(true)
         setShowModal2(false)
-
     }
+    useEffect(()=>{
+        $("#beginning").fadeIn(1000)
+    },[])
     return(
        
         <div className=" h-100 pt-5" >
@@ -144,7 +140,7 @@ import $ from 'jquery'
             </div>
 
             {pageStat==="prep"? (
-                <div className="d-flex justify-content-center align-items-center h-100">
+                <div className="d-flex justify-content-center align-items-center h-100" style={{display:"none"}}id="beginning">
                     <div className="text-center">
                     <div className="d-flex align-items-center justify-content-center">
                         <img className="img-fluid logo"src="../customerSatisfaction-dark.svg"/>

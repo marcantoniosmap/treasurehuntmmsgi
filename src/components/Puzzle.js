@@ -52,6 +52,7 @@ import $ from "jquery";
         const double = doubleValues(shuffledArray);
 
         let indexarr =shuffleArray(double);
+        indexarr=shuffleArray(indexarr)
         let arr=[]
         for (let i = 0; i <12;i++){
             let x =indexarr[i];
@@ -60,7 +61,6 @@ import $ from "jquery";
         }
         console.log(arr)
         setPuzzle(arr)
-        // setGameState("game")
         
     },[]);
 
@@ -74,8 +74,10 @@ import $ from "jquery";
         return array
     }
     function nextScene(){
-        props.history.push(`/feedbackform/`)
-    }   
+        $("#beginning").fadeOut(1000,()=>{
+        props.history.push(`/people`)
+        })
+    }
     function gameStart(){
         setGameState("game")
     }
@@ -114,7 +116,7 @@ import $ from "jquery";
                 },800)
                 console.log(cardDone)
                 if (cardDone===5){
-                    $(".logo").fadeOut()
+                    $(".logo").fadeOut(1000)
                     setTimeout(()=>{
                         setGameState("fin")
                         
@@ -167,8 +169,8 @@ import $ from "jquery";
             </div>
 
             : gameState==="prep" ?<div>
-                 <div>
-                    <p>
+                 <div className="text-center">
+                    <p >
                     Do you know all the people in <b>MTL</b> (Marketing, Trading, Logistic)?
                     </p>
                     <p>
@@ -185,10 +187,10 @@ Here's your chance! Play a game with us.
                 
                 : <div>
                     <p className="text-center">
-                    You finished!<br/>
-                         But who are those people by the card?
+                    Those are only 6 of us!<br/>
+                         But who are the rest of <b>MTL</b>?
                     </p>
-                    <button onClick={nextScene} className="btn btn-primary btn-block">CLICK ME</button>
+                    <button onClick={nextScene} className="btn btn-primary btn-block">FIND OUT</button>
                  
                 </div>
                 }
