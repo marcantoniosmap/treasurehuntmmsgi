@@ -12,17 +12,13 @@ import ReactLoading from 'react-loading'
   function RevealCode(props){
 
     const [currentText,setCurrentText]=useState();
-    const [text1,setCurrentText1]=useState(["",
+    const [text1,setCurrentText1]=useState([
                                             <h2>congratulation</h2>,
                                             "You have passed all the step",
-                                            <h3>You have succesfully decoded our message</h3>,
-                                            "We will reveal the code",
-                                            "the code is",
-                                            "is....",
-                                            "{retrieving from database...}",
-                                            "97% done",
-                                            <ReactLoading color="white"/>,
-                                            <h3><h1 className="logo primary-color"style={{fontSize:"500%"}}>694</h1>Number of succeeded decode : <b>{Math.floor(Math.random()*10)}</b></h3>,
+                                            <h3>You have decoded succesfully</h3>,
+                                            "IT IS NOW THE CODE REVEAL",
+                                            "one moment...",
+                                            <h3><h1 className="logo primary-color"style={{fontSize:"500%"}}>508</h1>Number of succeeded decode : <b>{Math.floor(Math.random()*10)}</b></h3>,
                                             ])
     
     useEffect(()=>{
@@ -31,6 +27,7 @@ import ReactLoading from 'react-loading'
           console.log(i)
           
           if (i !==text1.length-1){
+            $("#loading").hide()
             $('.currentText'+i).fadeOut(0,()=>{
               $('.currentText'+(i+1)).fadeIn(1500,()=>{
 
@@ -45,6 +42,7 @@ import ReactLoading from 'react-loading'
     return(
         <div className="h-100 d-flex align-items-center justify-content-center">
                 <div className="text-center">
+                <ReactLoading color="white" id="loading"/>
                     {text1.map((text,index)=>(
                       <h3 className={`currentText${index}`} style={{display:"none"}}>{text}</h3>
                     ))}

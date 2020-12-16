@@ -80,7 +80,9 @@ import $ from "jquery";
         })
     }
     function gameStart(){
+        $("#targetted_section").addClass('opacity-overlay');
         setGameState("game")
+        $('#tap').fadeIn(800)
     }
     function rightfunction(value){
         return cardValue1===value 
@@ -91,7 +93,9 @@ import $ from "jquery";
     //     },1000)
     // }
     function flip(piece){
-
+        $("#tap").fadeOut(100,()=>{
+            $("#targetted_section").removeClass('opacity-overlay');
+        });
         if (cardOpened1===piece[0]){
             return 0
         }
@@ -138,18 +142,19 @@ import $ from "jquery";
             }
         }
     }
+
     
     
     return(
-        
-        <div className="h-100 d-flex align-items-center justify-content-center">
+        <div className="h-100"> 
+            <img  id="tap" src="tapme.svg" style={{width:"90px",height:"90px",display:"none",left: "24%",top: "35%"}}></img>
+        <div id="targetted_section"className="h-100 d-flex align-items-center justify-content-center">
             <div id="beginning" style={{display:"none"}}>
             <div className="d-flex align-items-center justify-content-center">
                     <img className="img-fluid logo small-it "src="../facesofMTL-dark.svg"/>
                     </div>
             { gameState==="game" ?
                 <div className="row">
-
                 {puzzle.map((piece)=>(
             <div className="col-4 py-2 min-height-100">
             <div id={"item"+piece[0]} class="flip-card">
@@ -178,7 +183,7 @@ Here's your chance! Play a game with us.
 
                     </p>
                     <p>
-                    Match all the faces correctly within <span className="red">30 seconds</span> to proceed unlocking the secret code.
+                    Match all the faces correctly within <b><span className="text-primary">30 seconds</span></b> to proceed unlocking the secret code.
                         
                     </p>
                     <button onClick={gameStart}className="btn btn-primary btn-block">START PUZZLE 2</button>
@@ -194,6 +199,7 @@ Here's your chance! Play a game with us.
                  
                 </div>
                 }
+        </div>
         </div>
         </div>
     )

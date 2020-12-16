@@ -74,18 +74,26 @@ function People(props){
       autoplaySpeed:7000,
       speed :1000,
       adaptiveHeight:true,
-      autoplay:true,
       infinite: false,
       slidesToShow: 1,
+      onSwipe:(()=>{
+        $('#tap').fadeOut(500,()=>{
+          $(".opacity-overlay").removeClass('opacity-overlay');
+
+        })
+      })
   }
+  
+  
   useEffect(()=>{
-    
+  
     setTimeout(()=>{
         $("#face-1").fadeOut(1000,()=>{
           $("#face-2").fadeIn(1000)
         })
     },2000)
   },[])
+ 
   function nextScene(){
     $("#face-2").fadeOut(1000,()=>{
       props.history.push('/feedbackform')
@@ -97,12 +105,13 @@ function People(props){
       <div className="h-100" >
 
         <div style={{display:"none"}} id="face-2">
+        <img src="swipeme.svg" id="tap" style={{width:"90px", height:"90px",right:"5%", top:"10%"}}></img>
 
         
-          <Slider {...settings} >
+          <Slider {...settings}>
         {
               divisions.map((division)=>(
-              <div>
+              <div className="opacity-overlay" style={{opacity:0}}>
 
                 <h3 className="text-center pt-5 pb-3">Our {division} Team</h3>
                 {
@@ -131,7 +140,7 @@ function People(props){
                 {
                   division==="Support" &&
                   <div className="mx-2">
-                <button className="btn btn-primary btn-block mt-2 mb-5" onClick={nextScene}>CONTINUE</button>
+                <button className="btn btn-primary btn-block mt-2 mb-5" onClick={nextScene}>CONTINUE TO LEVEL 3</button>
                 </div>
                 }
               </div>

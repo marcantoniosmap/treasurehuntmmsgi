@@ -170,7 +170,6 @@ CLAIM CODE!
         </div>):(
                 <div id="feedbackform">
 <h3 className="text-center title">MMSGI Feedback Form</h3>
-        <p className="text-center"><span className="red">*</span> required field</p>
         <ModalB show={showModal1} 
                 handleClose={handleClose1}
                 handleAgree={handleClose1}
@@ -255,7 +254,7 @@ CLAIM CODE!
                             {/* THREE */}
                         <FormGroup className="mb-4">
                             <FormLabel >
-                            3. How likely are you going to renew/start our business <b>partnership</b> in 2021?*<span className="red">*</span>
+                            3. How likely are you going to renew/start our business <b>partnership</b> in 2021?<span className="red">*</span>
                             </FormLabel>
                             <div className="row pt-3">
                             <div className="col-3">
@@ -283,7 +282,7 @@ CLAIM CODE!
                         {/* FOUR */}
                         <FormGroup className="mb-4">
                             <FormLabel >
-                             3. How likely are you to <b>recommend</b> us to a business associate?<span className="red">*</span>
+                             4. How likely are you to <b>recommend</b> us to a business associate?<span className="red">*</span>
                             </FormLabel>
                             <div className="row pt-3">
                             <div className="col-3">
@@ -350,16 +349,16 @@ CLAIM CODE!
 
 
                        
-                        <FormGroup className="mb-4">
+                        {/* <FormGroup className="mb-4">
                           <FormLabel>
                                5. Write your own feedback here!*<span className="red">*<div className="small">({getCharacterLeft()} char left)</div></span>
                           </FormLabel>
                           <FormControl className="mt-2"placeholder="What can we improve as a company..." as ="textarea" rows={3} value={textValue} onChange={textFunction}/>
 
-                      </FormGroup >
+                      </FormGroup > */}
                         
-                      <FormGroup id="formGridCheckbox" className="mb-5">
-    <FormCheck type="checkbox" checked={agree} onClick={changeAgree}className="text-muted2 small" label=" Click here to indicate you have read the Terms and Conditions" />
+                      <FormGroup id="formGridCheckbox" className="mb-2 mt-5">
+    <FormCheck type="checkbox" checked={agree} onClick={changeAgree}className="text-muted2 small" label=" Click here to indicate you have read the Terms and Conditions!" />
   </FormGroup>
 
   <Button variant="primary" disabled={formchecker()} onClick={submission}block type="submit">

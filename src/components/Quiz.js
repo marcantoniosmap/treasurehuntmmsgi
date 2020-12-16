@@ -133,7 +133,7 @@ import { Link } from "react-router-dom";
     }
     function getButton(){
         if (quiz==="prep") {return "START"}
-        if (quiz==="fin") {return "CONTINUE"}
+        if (quiz==="fin") {return "CONTINUE TO LEVEL 2"}
         else {
             return number<4?"NEXT":"FINISH"
         }
@@ -198,11 +198,11 @@ import { Link } from "react-router-dom";
                     ))}
                 </Slider> : 
                  quiz==="prep" ?
-                <div>
+                <div className="text-center">
                     <p>
                     In this segment, you will have to answer <b>5</b> questions regarding MMSGI.
                     <p>
-                    all correct answers are required to past this test, press <b>START</b> when you are ready! Goodluck 
+                    All correct answers are required to past this test, press <b>START</b> when you are ready! Goodluck 
                         </p>
                     </p>
                 </div>

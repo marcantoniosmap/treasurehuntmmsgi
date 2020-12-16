@@ -14,6 +14,7 @@ import People from "./components/People";
 import RevealCode from "./components/RevealCode"
 import RomanticBargeTour from "./components/RomanticBargeTour"
 import Itaewonclass from "./components/Itaewonclass"
+import Swabtutorial from "./components/Swabtutorial"
 function App() {
   const list={
     "buyer":{
@@ -102,6 +103,14 @@ function App() {
               path="/itaewonclass"
               render ={(props)=>(
               <Itaewonclass
+              {...props}
+              details ={list}
+              />
+              )}/>
+                 <Route 
+              path="/swabtutorial"
+              render ={(props)=>(
+              <Swabtutorial
               {...props}
               details ={list}
               />
