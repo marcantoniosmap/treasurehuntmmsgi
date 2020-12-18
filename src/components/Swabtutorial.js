@@ -24,7 +24,7 @@ import $ from 'jquery'
                 <a href="https://www.instagram.com/tv/CI2KruVHCFN/?utm_source=ig_web_copy_link" target="#" style={{color:"white"}}>
             <div id="english-card"className="card  my-2">
                 <div className="h-100 d-flex align-items-center justify-content-center">
-                <h5 className="text-center">Watch with English <br/>audio and Subtitle</h5>
+                <h5 className="text-center">Watch with English <br/>audio and subtitle</h5>
 
                 </div>
             </div>
@@ -33,7 +33,7 @@ import $ from 'jquery'
                 <a href="https://www.instagram.com/tv/CI2LLH0HCWr/?utm_source=ig_web_copy_link" target="#" style={{color:"white"}}>
             <div id="indo-card"className="card  my-2">
                 <div className="h-100 d-flex align-items-center justify-content-center">
-                    <h5 className="text-center">Watch with Indonesian <br/>audio and Subtitle</h5>
+                    <h5 className="text-center">Watch with Indonesian <br/>audio and subtitle</h5>
 
                 </div>
             </div>    
