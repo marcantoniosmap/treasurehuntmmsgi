@@ -147,7 +147,7 @@ import $ from "jquery";
     
     return(
         <div className="h-100"> 
-            <img  id="tap" src="tapme.svg" style={{width:"90px",height:"90px",display:"none",left: "24%",top: "35%"}}></img>
+            <img  id="tap" src="tapme.svg" className="logo" style={{width:"90px",height:"90px",display:"none",left: "24%",top: "35%"}}></img>
         <div id="targetted_section"className="h-100 d-flex align-items-center justify-content-center">
             <div id="beginning" style={{display:"none"}}>
             <div className="d-flex align-items-center justify-content-center">
@@ -176,24 +176,20 @@ import $ from "jquery";
             : gameState==="prep" ?<div>
                  <div className="text-center">
                     <p >
-                    Do you know all the people in <b>MTL</b> (Marketing, Trading, Logistic)?
-                    </p>
-                    <p>
-Here's your chance! Play a game with us.
-
-                    </p>
-                    <p>
-                    Match all the faces correctly within <b><span className="text-primary">30 seconds</span></b> to proceed unlocking the secret code.
+                    We hope you know all the wonderful people working in MTL (Marketing, Trading, Logistic).</p>
+<p>
+    In next task, we shall put your memory to the test. You will need to match all the faces correctly within <span className="text-primary"><b>30 seconds</b></span>.
                         
                     </p>
-                    <button onClick={gameStart}className="btn btn-primary btn-block">START PUZZLE 2</button>
+                    <button onClick={gameStart}className="btn btn-primary btn-block">START</button>
                 </div>
                 </div>
                 
                 : <div>
+                    <h3 className="text-center">Awesome!</h3>
                     <p className="text-center">
-                    Those are only 6 of us!<br/>
-                         But who are the rest of <b>MTL</b>?
+                    Awesome! You managed to match 6 of us! 
+                    <br></br>How about the rest of the <b>MTL</b> Team?
                     </p>
                     <button onClick={nextScene} className="btn btn-primary btn-block">FIND OUT</button>
                  

@@ -16,55 +16,59 @@ import $ from "jquery"
 function People(props){
 
   const [title,setTitle]=useState(true);
-  const divisions =["Head","Sales","Logistic","Support"];
+  const divisions =["Division Head","Department Head","Section Head","Supervisor","Staff","Intern"];
   const [currTitle,setCurrTitle]=useState(divisions[0])
   // const divisions =["Head"];
   const list={
-    "Head" :["Edmund","Gustaf","Saly","Kamari","Azwar","Dinovita"],
-    "Sales":["Lisye","Valen","Jelita","Hari","Nadhira","Marina","Tissa","Mufti","Laila","Yura","Valesia","Febri"],
-    "Logistic":["Daniel","Rendhi","Lena","Andrees","Jantri","Valen T","Salma","April","Hendro"],
-    "Support":["Tiurma","Soedono","Adika","Noviza","Nenden","Cicil","Christian","Ukthi","Shanti","Ratna","Clarista","Antonio"]
+    "Division Head" :["Edmund","Gustaf"],
+    "Department Head" :["Saly","Richard","Yusron",],
+    "Section Head" : [,"Azwar","Dinovita","Lisye","Valen","Tiurma","Kamari","Jelita","Lena","Hari","Daniel"],
+    "Supervisor":["Soedono","Noviza","Marina","Nadhira","Andrees","Valen T","Trissa","Rendhi"],
+    "Staff":["Mufti","Laila","Yura","Valesia","Febri","Jantri","Salma","April","Hendro","Adika","Clarista","Nenden","Cicil","Christian","Ukthi","Shanti","Ratna"],
+    "Intern":["Antonio"]
   }
   const listJob={
     "Edmund":"Division Head",
-    "Gustaf":"co-Division Head",
-    "Saly":"Head of Marketing",
-    "Kamari":"Head of Quality Control",
-    "Azwar":"Head of Marketing Support",
-    "Dinovita":"Head of Traffic",
-    "Lisye":"Head of Makan Enak",
-    "Valen":"Domestic dept Head",
-    "Jelita":"Shipment Scheduler",
-    "Hari":"Contract Specialist",
-    "Nadhira":"Rakor watcher",
-    "Marina":"Shipment Scheduler",
-    "Tissa":"Shipment Scheduler",
-    "Mufti":"Ibu Menghamili",
-    "Laila":"Domestic",
-    "Yura":"Domestic",
-    "Valesia":"Contract Specialist",
-    "Febri":"Trading",
-    "Daniel":"Stockpile Man",
-    "Rendhi":"Inventory Man",
-    "Lena":"Invoicing wo-Man",
-    "Andrees":"Barge plotter",
-    "Jantri":"Very Huge man",
-    "Valen T":"FC booker",
-    "Salma":"Invoice scanner",
-    "April":"Invoice scanner 2",
-    "Hendro":"Barging analysis",
-    "Tiurma":"Section Head of Marketing Support",
-    "Soedono":"Section Head of Quality Control",
-    "Adika":"Dashboard and Excel Man",
-    "Noviza":"Powerpoint wo-Man",
-    "Nenden":"Traffic and Documentation",
-    "Cicil":"Traffic and Documentation",
-    "Christian":"Traffic and Documentation",
-    "Ukthi":"Traffic and Documentation",
-    "Shanti":"Head of MTL Lambe",
-    "Ratna":"Costing of Marketing support",
-    "Clarista":"Quality Control",
-    "Antonio":"Senior Intern"
+    "Gustaf":"Deputy Division Head",
+    "Richard":"Specialist Project Head",
+    "Yusron":"Logistic Dept Head",
+    "Saly":"Marketing Dept Head",
+    "Kamari":"Quality Control Section Head",
+    "Azwar":"MS Section Heaf Finance Controller",
+    "Dinovita":"Traffic Section Head",
+    "Lisye":"Marketing Section Head",
+    "Valen":"Domestic Section Head",
+    "Jelita":"Shipment Scheduler Senior Supervisor",
+    "Hari":"Contract Section Head",
+    "Nadhira":"Domestics Supervispr",
+    "Marina":"Shipment  Supervisor",
+    "Trissa":"Shipment Scheduler Supervisor",
+    "Mufti":"Domestics Staff",
+    "Laila":"Domestics Staff",
+    "Yura":"Domestics Staff",
+    "Valesia":"Contract Staff",
+    "Febri":"Logistics staff",
+    "Daniel":"Stock and Sales Section Head",
+    "Rendhi":"Logistic Supervisor",
+    "Lena":"Logistics Section Head",
+    "Andrees":"Logistics plotter",
+    "Jantri":"Logistics staff",
+    "Valen T":"Logistics Supervisor",
+    "Salma":"Logistics staff",
+    "April":"Logistics staff",
+    "Hendro":"Logistics staff",
+    "Tiurma":"Marketing Support Section Head",
+    "Soedono":"QC Supervisor",
+    "Adika":"Quality Control Staff",
+    "Noviza":"Marketing Support Supervisor",
+    "Nenden":"Traffic Staff",
+    "Cicil":"Traffic Staff",
+    "Christian":"Traffic Staff",
+    "Ukthi":"Traffic Staff",
+    "Shanti":"Marketing support Staff",
+    "Ratna":"Marketing support Staff",
+    "Clarista":"Quality Control Staff",
+    "Antonio":"Intern"
   }
 
   const [ArrIterate,setArrIterate]=useState(Array.from({length: 40}, (_, index) => index + 1))
@@ -105,7 +109,7 @@ function People(props){
       <div className="h-100" >
 
         <div style={{display:"none"}} id="face-2">
-        <img src="swipeme.svg" id="tap" style={{width:"90px", height:"90px",right:"5%", top:"10%"}}></img>
+        <img src="swipeme.svg" id="tap" className="logo" style={{width:"90px", height:"90px",right:"5%", top:"10%"}}></img>
 
         
           <Slider {...settings}>
@@ -113,13 +117,13 @@ function People(props){
               divisions.map((division)=>(
               <div className="opacity-overlay" style={{opacity:0}}>
 
-                <h3 className="text-center pt-5 pb-3">Our {division} Team</h3>
+                <h3 className="text-center pt-5 pb-3">{division}</h3>
                 {
                   list[division].map((person)=>(
                     <div className="card bg-dark my-2 mx-2" style={{minHeight:"120px"}}>
                         <div className="row">
                           <div className="col-5">
-                            <img className="img-fluid pl-2"src={`../face-body/${division}/${person}-sm.png`}/>
+                            <img className="img-fluid pl-2"src={`../face-body/${person}-sm.png`}/>
                           </div>
 
                           <div className="col-7">
@@ -138,7 +142,7 @@ function People(props){
                 }
                
                 {
-                  division==="Support" &&
+                  division==="Intern" &&
                   <div className="mx-2">
                 <button className="btn btn-primary btn-block mt-2 mb-5" onClick={nextScene}>CONTINUE TO LEVEL 3</button>
                 </div>

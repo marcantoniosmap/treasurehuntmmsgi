@@ -40,7 +40,7 @@ import { Link } from "react-router-dom";
         },[]);
     const [questions,setQuestions]=useState([
         {
-            "question":"1. What does our company name, MMSGI stands for ?",
+            "question":"1. What does MMS abbreviation means ?",
             "choice1":"Maju Mundur Selalu Group Indonesia",
             "choice2":"Mitra Maju Sukses Group Indonesia",
             "choice3":"Makan Minum Sehat Group Indonesia",
@@ -48,7 +48,7 @@ import { Link } from "react-router-dom";
 
         },
         {
-            "question":"2. When did MMSGI was first established ?",
+            "question":"2. In which year was MMSGI established ?",
             "choice1":"2010",
             "choice2":"2013",
             "choice3":"2014",
@@ -56,37 +56,30 @@ import { Link } from "react-router-dom";
 
         },
         {
-            "question":"3. Which of these business MMSGI is not involved in yet?",
+            "question":"3. Which of the following business sectors MMSGI is not involved in?",
             "choice1":"Property",
             "choice2":"Mining",
-            "choice3":"Security",
-            "choice4":"Bike Jersey",
+            "choice3":"Agriculture",
+            "choice4":"Selling Bike Jersey",
 
         },
         {
-            "question":"4. Where is our main office located at?",
-            "choice1":"The City Center",
-            "choice2":"Menara Batavia",
-            "choice3":"UOB Tower",
-            "choice4":"Sudirman Tower",
+            "question":"4. Where is MMSGI office located at? ",
+            "choice1":"Pulau Seribu",
+            "choice2":"TCC Batavia Tower One",
+            "choice3":"Taman Mini Indonesia Indah",
+            "choice4":"Dunia Fantasi",
 
         },
-        {
-            "question":"5. Who is the most handsome guy in MMSGI?",
-            "choice1":"Mr. Edmund",
-            "choice2":"Edmund Tan",
-            "choice3":"Pak ET",
-            "choice4":"Still Edmund",
-
-        }
+     
     ])
 
     function handlechanged(idPassed){
         setNumChecked(idPassed)
     }
     function checkTrue(){
-        const answer =[4,3,4,1,2]
-        if (answer[number]===numchecked || (number===4 && numchecked!==null))
+        const answer =[2,3,4,2]
+        if (answer[number]===numchecked)
             return true
         else return false;
     }
@@ -106,8 +99,8 @@ import { Link } from "react-router-dom";
         }
         else{
             if (checkTrue()){
-                if (number===4){
-                    setNumber(5)
+                if (number===3){
+                    setNumber(4)
                     setQuiz("fin");
                     $(".title").html("PERFECT SCORE");
                 }else{
@@ -135,7 +128,7 @@ import { Link } from "react-router-dom";
         if (quiz==="prep") {return "START"}
         if (quiz==="fin") {return "CONTINUE TO LEVEL 2"}
         else {
-            return number<4?"NEXT":"FINISH"
+            return number<3?"NEXT":"FINISH"
         }
         
     }
@@ -148,7 +141,7 @@ import { Link } from "react-router-dom";
                         <img className="img-fluid logo"src="../gettoknow.svg"/>
 
                     </div>
-            <ProgressBar now={number*20}/>
+            <ProgressBar now={number*25}/>
 
             <div className="pt-5 w-100">
                 {quiz==="quiz" ?
@@ -200,33 +193,25 @@ import { Link } from "react-router-dom";
                  quiz==="prep" ?
                 <div className="text-center">
                     <p>
-                    In this segment, you will have to answer <b>5</b> questions regarding MMSGI.
-                    <p>
-                    All correct answers are required to past this test, press <b>START</b> when you are ready! Goodluck 
-                        </p>
+                    In the first task, you will be given <b>4</b> difficult questions regarding MMSGI. 
+                            <br></br><br></br>
+                        <b>Good Luck!</b>
                     </p>
                 </div>
                  :  
                  <div className="text-center">
                     <p>
-                        Yey! You just finished our next challenge, Now you know more about our company.<br/>
+                        <p>
+
+                    Great Job! You have just completed the first task.
+                        </p>
+<p>
+
+Thanks to your awesome support, <span className="text-primary"><b>MMSGI</b></span> have grown into one of the most reputable and reliable energy provider in the Industry. All coal-related business is consolidated under <b>MMS Resources</b>. We are growing our portfolio beyond coal into other business sectors ranging from property under <b>Mitra Properti Sukses</b> and new initiatives under Life After Mine. 
+</p>
                         </p>
                         <p>
-                        <b>MMSGI</b> was first established in 2014.
-                        Today, our group have grown
-into one of the most reputable
-and reliable coal suppliers for
-both national and international
-markets. All coal related business is
-consolidated under <b>MMS Resources</b>.
-In Parallel, we grow our portfolio
-beyond coal into other businesess,
-ranging from property under <b>Mitra
-Properti Sukses</b> and new initiatives
-under Life After Mine.<br/>
-                        </p>
-                        <p>
-                        Click <a target="#" href="https://mmsgroup.co.id/en/tentang-kami">here</a> to read more about our company.
+                        Feel free to click <a target="#" href="https://mmsgroup.co.id/en/tentang-kami">here</a> to learn more about us.
                         </p>
                 </div>
                 

@@ -12,12 +12,10 @@ import ReactLoading from 'react-loading'
   function RevealCode(props){
 
     const [currentText,setCurrentText]=useState();
-    const [text1,setCurrentText1]=useState([
+    const [text1,setCurrentText1]=useState(["",
                                             <h2>congratulation</h2>,
-                                            "You have passed all the step",
-                                            <h3>You have decoded succesfully</h3>,
-                                            "IT IS NOW THE CODE REVEAL",
-                                            "one moment...",
+                                            "YOU HAVE SUCCESSFULLY DECODED MMSGI",
+                                            "ONE MOMENT PLEASE. WE ARE NOW RETRIVING THE SECRET CODE",
                                             <h3><h1 className="logo primary-color"style={{fontSize:"500%"}}>508</h1>Number of succeeded decode : <b>{Math.floor(Math.random()*10)}</b></h3>,
                                             ])
     

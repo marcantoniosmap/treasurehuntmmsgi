@@ -22,9 +22,13 @@ import $ from 'jquery'
             <img style={{width:"100%"}}class="logo"src="../decodemmsgi-dark.svg"/>
 
             </div>
-            <p><b>You might be so confused now!</b>
+            <p>Welcome. At least you did managed to scan the QR code as requested.
+        <br></br><br></br>
+            <p>Are you ready for some fun? </p>
+        
+        Please allow us to guide you through the process on unlocking the secret code to open the box.
             <br/>
-            But no worry! We'll guide you through it!</p>
+            </p>
             <button 
                 className="btn btn-primary btn-block"
                 onClick={nextScene}>TELL ME HOW

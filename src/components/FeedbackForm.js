@@ -146,9 +146,11 @@ import $ from 'jquery'
                         <img className="img-fluid logo"src="../customerSatisfaction-dark.svg"/>
 
                     </div>
-                    <h5>Your feedback matters to us!</h5>
-
-<p>We appreciate you taking 1 minute to participate in our customer satisfaction survey. Your valuable feedback will help us serve you better.</p>
+                    <h5 className="pb-2">Your feedback matters to us!</h5>
+                    
+<p>The final task is really simple.
+    We would like you to complete a <span className="text-primary"><b>1-minute</b></span> customer satisfaction survey. <br></br><br></br>
+    Please provide us with your honest feedback. </p>
   <Button variant="primary"  onClick={startFeedback}block type="submit">
     START
   </Button>
@@ -184,9 +186,8 @@ CLAIM CODE!
                 context={<div>
                 Thank you for participating in our survey. <br/><br/>By checking this box, you hereby agree to the terms and conditions as set forth.<br/><br/> 
                 <ol>
-                    <li>You agree that MMSGI may collect <b>only</b> the positive feedback data. We shall send the negative results to our internal recycle bin.</li>
-                    <li>We will always use best endeavors to achieve win-win partnership and have <b>fun</b> in the process.</li>
-                    <li>You have filled in the survey with only your own <b>honest</b> opinion.</li>
+                    <li>You agree that MMSGI may collect <b>only</b> the positive feedback data. We shall send the negative results to the trash bin.</li>
+                    <li>We will always use best endeavors to achieve <b>win-win</b> partnership and have fun in the process. 🥳</li>
                 </ol>
                 These terms and conditions are subject to change at the sole discretion of MMSGI. Trust us. We know what is best for you.😉
                 </div>}
@@ -196,11 +197,11 @@ CLAIM CODE!
                        {/* ONE */}
                         <FormGroup className="mb-4">
                             <FormLabel >
-                             1. How <b>satisfied</b> are you with our service this year?<span className="red">*</span>
+                             1. Did you had <b>fun</b> so far?<span className="red">*</span>
                             </FormLabel>
                             <div className="row pt-3">
                             <div className="col-3">
-                                <p className="small text-center">Not Satisfied</p>
+                                <p className="small text-center">Not at all</p>
                             </div>
                             <div className="col-6">
                             <Slider
@@ -217,7 +218,7 @@ CLAIM CODE!
                         />
                             </div>
                             <div className="col-3">
-                            <p className="small text-center">Very Satisfied</p>
+                            <p className="small text-center">Very Amused</p>
                             </div>
                         </div>
                         </FormGroup>
@@ -310,13 +311,13 @@ CLAIM CODE!
 
                         <FormGroup className="mb-4">
                             <FormLabel >
-                             4. Which of the following aspects do you wish MMSGI to improve on?<span className="red">*</span>
+                             5. Which of the following aspects do you wish MMSGI to improve on?<span className="red">*</span>
                             </FormLabel>
                                 <FormCheck
                                 id="gone1"
                                     className="smaller pt-3"
                                     type="checkbox"
-                                    label="Better commercial terms from MMSGI"
+                                    label="Finding more business cooperation"
                                     checked = {false}
                                 onChange={(e)=>handleClick(e.target.value,1)}
                                 />
@@ -324,26 +325,26 @@ CLAIM CODE!
                            className="smaller"
                            id="gone2"
                                     type="checkbox"
-                                    label="Improved response time on work"
+                                    label="Better Commercial terms"
                                     // id="first-1"
                                     checked = {false}
                             onChange={(e)=>handleClick(e.target.value,2)}
                                 /><FormCheck
-                                
+                                id="gone4"
+
                                 className="smaller"
                                 type="checkbox"
-                                label="Enhance business partnership"
+                                label="Improved Response time"
                                 // id="first-1"
-                                checked = {radioBoxGone}
-                            onChange={(e)=>handleClick(e.target.value,3)}
+                                checked = {false}
+                            onChange={(e)=>handleClick(e.target.value,4)}
                             /><FormCheck
-                            id="gone4"
                             className="smaller"
                             type="checkbox"
-                            label="Better Customer Service"
+                            label="Nothing. MMSGI is perfect!"
                             // id="first-1"
-                            checked = {false}
-                            onChange={(e)=>handleClick(e.target.value,4)}
+                            checked = {radioBoxGone}
+                            onChange={(e)=>handleClick(e.target.value,3)}
                         />
                         </FormGroup>
 

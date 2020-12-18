@@ -22,12 +22,12 @@ import $ from 'jquery'
 
                 <div className="text-center" id="beginning" style={{display:"none"}}>
                     <h1 style={{fontSize:"300%"}}>How to Decode ?</h1>
-                    <p>There will be different steps in order to decode this game, complete all the <b>3</b> levels, then you may retrieve the code!</p>
-                    <img className="" src="../guidance-dark.svg" style={{maxWidth:"600px"}} />
+                    <p>You will need to complete <b>3</b> simple tasks in order to obtain the secret code to open the gift box.</p>
+                    <img className="" src="../guidance-dark.svg" style={{maxWidth:"350px"}} />
                     <button
                     
-                        className="btn btn-primary btn-block mt-5"
-                        onClick={nextScene}>START DECODING
+                        className="btn btn-primary btn-block mt-3"
+                        onClick={nextScene}>START LEVEL 1
                     </button>
                 </div>
                 </div>
