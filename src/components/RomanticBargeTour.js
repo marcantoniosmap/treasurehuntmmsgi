@@ -33,8 +33,8 @@ import Slider from "react-slick";
                 <tbody>
                     <tr>
                     <td>1</td>
-                    <td>Katy</td>
-                    <td>Perry</td>
+                    <td>Gustaf's</td>
+                    <td>Wife</td>
                     </tr>
                     <tr>
                     <td>2</td>
@@ -43,8 +43,8 @@ import Slider from "react-slick";
                     </tr>
                     <tr>
                     <td>3</td>
-                    <td>Edmund</td>
-                    <td>Tan</td>
+                    <td>Gustaf's</td>
+                    <td>child</td>
                     </tr>
                     <tr>
                     <td colSpan="3" className="text-center">and <b>7</b> more..</td>
