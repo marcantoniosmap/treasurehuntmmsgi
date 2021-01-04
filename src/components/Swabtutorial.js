@@ -37,10 +37,12 @@ import $ from 'jquery'
 
                 </div>
             </div>    
-
+            
                 </a>
             </div>
+            <p className="text-center mb-5">or visit our Instagram <a href="https://www.instagram.com/mmsgroupindonesia/" target="#">@mmsgroupindonesia</a></p>
             </div>
+
             
         </div>
 
