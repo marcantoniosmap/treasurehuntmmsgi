@@ -21,7 +21,7 @@ import $ from 'jquery'
             <p className="text-center mb-5">By MMS Group Indonesia</p>
 
             <div>
-                <a href="https://www.instagram.com/tv/CI2KruVHCFN/?utm_source=ig_web_copy_link" target="#" style={{color:"white"}}>
+                <a href="https://www.instagram.com/tv/CJsGzGWHtd7/?utm_source=ig_web_copy_link" target="#" style={{color:"white"}}>
             <div id="english-card"className="card  my-2">
                 <div className="h-100 d-flex align-items-center justify-content-center">
                 <h5 className="text-center">Watch with English <br/>audio and subtitle</h5>
@@ -30,7 +30,7 @@ import $ from 'jquery'
             </div>
 
                 </a>
-                <a href="https://www.instagram.com/tv/CI2LLH0HCWr/?utm_source=ig_web_copy_link" target="#" style={{color:"white"}}>
+                <a href="https://www.instagram.com/tv/CJsHeawHEV7/?utm_source=ig_web_copy_link" target="#" style={{color:"white"}}>
             <div id="indo-card"className="card  my-2">
                 <div className="h-100 d-flex align-items-center justify-content-center">
                     <h5 className="text-center">Watch with Indonesian <br/>audio and subtitle</h5>
